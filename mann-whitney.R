@@ -52,9 +52,11 @@ mann_whitney_test <- function(datos, variable, grupo) {
   
   # Devolver resultados
   return(list(
-    "U" = U,
     "Rango_Grupo1" = R1,
     "Rango_Grupo2" = R2,
+    "U1" = U1,
+    "U2" = U2,
+    "Estadístico U" = U,
     "Z" = Z,
     "p_valor" = p_valor
   ))

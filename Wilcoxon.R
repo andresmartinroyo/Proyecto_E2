@@ -27,7 +27,6 @@ wilcoxon_test <- function(datos, variable_x, variable_y) {
   
   # Estadístico de Wilcoxon es el menor entre las dos sumas absolutas
   T <- min(abs(T_plus), abs(T_minus))
-  source("~/Documents/GitHub/Proyecto_E2/leer_excel.R")
 
   # Tamaño muestral (número de diferencias válidas)
   n <- length(diferencias)
@@ -50,4 +49,20 @@ wilcoxon_test <- function(datos, variable_x, variable_y) {
     "Z" = Z,
     "p_valor" = p_valor
   ))
+}
+
+
+wilcox_lib <- function(datos) {
+  # Convertir las columnas a numéricas (por si acaso)
+  datos$X <- as.numeric(datos$X)
+  datos$Y <- as.numeric(datos$Y)
+  
+  # Verificar si hay valores NA después de la conversión
+  if (any(is.na(datos$X)) || any(is.na(datos$Y))) {
+    stop("Las columnas contienen valores no numéricos o valores faltantes.")
+  }
+  
+  # Realizar la prueba de Wilcoxon
+  resultado <- wilcox.test(x = datos$X, y = datos$Y, paired = TRUE)
+  print(resultado)
 }

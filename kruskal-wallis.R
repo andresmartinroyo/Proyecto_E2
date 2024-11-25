@@ -40,7 +40,11 @@ kruskal_wallis_test <- function(datos, variable, grupo) {
   p_valor <- pchisq(H,gl,lower.tail = FALSE)
   
   # Las listas en r son los diccionarios de pyhon,
-  return(list("H" = H, "p_valor" = p_valor))
+  return(list(
+    "suma rangos" = suma_rangos,
+    "gl" = gl,
+    "Estadísitco H" = H, 
+    "p_valor" = p_valor))
 }
 
 #Funcion K-W con el uso de librerias
