@@ -51,10 +51,3 @@ wilcoxon_test <- function(datos, variable_x, variable_y) {
     "p_valor" = p_valor
   ))
 }
-
-wilcox_lib <- function(datos, variable_x, variable_y){
-  
-  resultado <- wilcox.test(x = datos$Variable_X, y = datos$Variable_Y, paired = TRUE)
-  print(resultado)
-}
-
